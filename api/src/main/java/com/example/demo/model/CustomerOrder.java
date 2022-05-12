@@ -3,7 +3,6 @@ package com.example.demo.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Iterator;
 
 @Entity
 @Data
@@ -12,7 +11,6 @@ public class CustomerOrder {
     @GeneratedValue
     @Id
     private long Id;
-    private String orderNr;
 
     @ManyToOne
     @JoinColumn
@@ -22,9 +20,8 @@ public class CustomerOrder {
     @JoinColumn
     private Item item;
 
-    public CustomerOrder(long id, String orderNr, Customer customer, Item item) {
+    public CustomerOrder(long id, Customer customer, Item item) {
         this.Id = id;
-        this.orderNr = orderNr;
         this.customer = customer;
         this.item = item;
     }
@@ -36,12 +33,4 @@ public class CustomerOrder {
 
     public CustomerOrder() {
     }
-
-    public CustomerOrder(long id, Customer customer, Item item) {
-        this.Id = id;
-        this.customer = customer;
-        this.item = item;
-    }
-
-
 }

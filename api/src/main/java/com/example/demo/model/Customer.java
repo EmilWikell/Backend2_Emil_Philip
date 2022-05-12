@@ -15,20 +15,20 @@ public class Customer {
     @Id
     private long id;
     private String name;
-    private String address;
+    private String password;
 
-    public Customer(String name, String address) {
+    public Customer(String name, String password) {
         this.name = name;
-        this.address = address;
+        this.password = password;
     }
 
     public Customer() {
 
     }
 
-    public Customer(long id, String name, String address) {
+    public Customer(long id, String name, String password) {
         this.id = id;
         this.name = name;
-        this.address = address;
+        this.password = password;
     }
 }
