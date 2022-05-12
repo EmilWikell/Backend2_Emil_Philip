@@ -22,4 +22,4 @@ services:
     ports:
     - "8080:8080"
     environment:
-      api_base_url: "http://API:8080/"
+      api_base_url: "http://api:8080/"
