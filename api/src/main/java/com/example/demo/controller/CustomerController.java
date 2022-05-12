@@ -5,6 +5,7 @@ import com.example.demo.repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+//Controller
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
