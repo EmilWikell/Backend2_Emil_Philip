@@ -4,7 +4,7 @@ COPY ./mvnw .
 COPY ./.mvn/ .mvn/
 COPY ./pom.xml .
 COPY ./src/ src/
-RUN ./mvnw package
+RUN ./mvnw package -DskipTests
 FROM openjdk:11
 WORKDIR /app
 COPY --from=build-stage /build/target/api-*jar /app/api.jar

@@ -16,6 +16,8 @@ public class Customer {
     private long id;
     private String name;
     private String address;
+    private String username;
+    private String password;
 
     public Customer(String name, String address) {
         this.name = name;
