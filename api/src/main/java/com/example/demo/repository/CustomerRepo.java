@@ -4,4 +4,5 @@ import com.example.demo.model.Customer;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CustomerRepo extends CrudRepository<Customer,Long> {
+    Customer findCustomersByUsername(String username);
 }

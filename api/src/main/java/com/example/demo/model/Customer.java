@@ -14,21 +14,24 @@ public class Customer {
     @GeneratedValue
     @Id
     private long id;
-    private String name;
+    private String username;
     private String address;
+    private String password;
 
-    public Customer(String name, String address) {
-        this.name = name;
-        this.address = address;
+    public Customer(String userName, String password) {
+        this.username = userName;
+        this.password = password;
     }
+
+
 
     public Customer() {
 
     }
 
-    public Customer(long id, String name, String address) {
+    public Customer(long id, String userName, String address) {
         this.id = id;
-        this.name = name;
+        this.username = userName;
         this.address = address;
     }
 }

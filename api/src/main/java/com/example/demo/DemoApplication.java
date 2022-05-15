@@ -1,8 +1,6 @@
 package com.example.demo;
 
 import com.example.demo.model.Customer;
-import com.example.demo.model.CustomerOrder;
-import com.example.demo.model.Item;
 import com.example.demo.repository.CustomerOrderRepo;
 import com.example.demo.repository.CustomerRepo;
 import com.example.demo.repository.ItemRepo;
@@ -10,9 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import javax.persistence.criteria.Order;
-import java.util.List;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -21,13 +18,17 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-    //@Bean
-    //public CommandLineRunner demo(CustomerOrderRepo customerOrderRepo, CustomerRepo customerRepo, ItemRepo itemRepo){
-    //    return (args) ->{
-    //        Customer customer0 = new Customer("Göran", "Stigen 3");
-    //        Customer customer1 = new Customer("Nils", "Stigen104");
-    //        Customer customer2 = new Customer("Lena" , "Bron4");
+    @Bean
+    public CommandLineRunner demo(CustomerOrderRepo customerOrderRepo, CustomerRepo customerRepo, ItemRepo itemRepo){
+        return (args) ->{
+            Customer customer0 = new Customer("Goran", "123");
+            Customer customer1 = new Customer("Nils", "123");
+            Customer customer2 = new Customer("Lena" , "123");
 //
     //        Item item0 = new Item("Hammare","2020");
     //        Item item1 = new Item("Spik","2021");
@@ -41,9 +42,9 @@ public class DemoApplication {
     //        CustomerOrder customerOrder3 = new CustomerOrder("1013", customer2,item4);
     //        CustomerOrder customerOrder4 = new CustomerOrder("1014", customer2,item3);
 //
-    //        customerRepo.save(customer0);
-    //        customerRepo.save(customer1);
-    //        customerRepo.save(customer2);
+            customerRepo.save(customer0);
+           customerRepo.save(customer1);
+            customerRepo.save(customer2);
 //
     //        itemRepo.save(item0);
     //        itemRepo.save(item1);
@@ -56,6 +57,6 @@ public class DemoApplication {
     //        customerOrderRepo.save(customerOrder2);
     //        customerOrderRepo.save(customerOrder3);
     //        customerOrderRepo.save(customerOrder4);
-    //    };
-    //}
+       };
+    }
 }
