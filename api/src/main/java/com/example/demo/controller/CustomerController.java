@@ -23,10 +23,5 @@ public class CustomerController {
         return customerRepo.findAll();
     }
 
-    @PostMapping("")
-    public String addCustomer(@RequestBody Customer customer){
-        customerRepo.save(customer);
-        return "Customer added";
 
-    }
 }
