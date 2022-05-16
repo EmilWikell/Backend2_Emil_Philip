@@ -21,12 +21,11 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 
-
-    //@Bean
-    //public CommandLineRunner demo(CustomerOrderRepo customerOrderRepo, CustomerRepo customerRepo, ItemRepo itemRepo){
-    //    return (args) ->{
+    @Bean
+    public CommandLineRunner demo(CustomerOrderRepo customerOrderRepo, CustomerRepo customerRepo, ItemRepo itemRepo){
+        return (args) ->{
     //        Customer customer0 = new Customer("Göran", "Stigen 3");
-    //        Customer customer1 = new Customer("Nils", "Stigen104");
+    //        Customer customer1 = new Customer("Nils", "123");
     //        Customer customer2 = new Customer("Lena" , "Bron4");
 //
     //        Item item0 = new Item("Hammare","2020");
@@ -42,7 +41,7 @@ public class DemoApplication {
     //        CustomerOrder customerOrder4 = new CustomerOrder("1014", customer2,item3);
 //
     //        customerRepo.save(customer0);
-    //        customerRepo.save(customer1);
+     //       customerRepo.save(customer1);
     //        customerRepo.save(customer2);
 //
     //        itemRepo.save(item0);
@@ -56,6 +55,6 @@ public class DemoApplication {
     //        customerOrderRepo.save(customerOrder2);
     //        customerOrderRepo.save(customerOrder3);
     //        customerOrderRepo.save(customerOrder4);
-    //    };
-    //}
+        };
+    }
 }

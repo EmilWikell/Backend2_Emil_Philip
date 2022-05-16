@@ -1,30 +1,27 @@
 package com.example.demo.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Iterator;
 
-@Entity
-@Data
+@Entity @Data @NoArgsConstructor
 public class CustomerOrder {
 
-    @GeneratedValue
-    @Id
+    @GeneratedValue @Id
     private long Id;
-    private String orderNr;
 
-    @ManyToOne
-    @JoinColumn
+
+    @ManyToOne @JoinColumn
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn
+    @ManyToOne @JoinColumn
     private Item item;
 
-    public CustomerOrder(long id, String orderNr, Customer customer, Item item) {
+    public CustomerOrder(long id , Customer customer, Item item) {
         this.Id = id;
-        this.orderNr = orderNr;
+
         this.customer = customer;
         this.item = item;
     }
@@ -33,15 +30,4 @@ public class CustomerOrder {
         this.customer = customer;
         this.item = item;
     }
-
-    public CustomerOrder() {
-    }
-
-    public CustomerOrder(long id, Customer customer, Item item) {
-        this.Id = id;
-        this.customer = customer;
-        this.item = item;
-    }
-
-
 }

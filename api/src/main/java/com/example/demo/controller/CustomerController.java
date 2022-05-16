@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 //Controller
-@RestController
-@RequestMapping("/customers")
+@RestController @RequestMapping("/customers")
 public class CustomerController {
 
     @Autowired

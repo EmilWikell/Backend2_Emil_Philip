@@ -2,33 +2,31 @@ package com.example.demo.model;
 
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
-@Data
+@Entity @Data @NoArgsConstructor
 public class Customer {
 
-    @GeneratedValue
-    @Id
+    @GeneratedValue @Id
     private long id;
-    private String name;
-    private String address;
+    @Column(unique = true)
+    private String username;
+    private String password;
 
-    public Customer(String name, String address) {
-        this.name = name;
-        this.address = address;
+    public Customer(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public Customer() {
 
-    }
-
-    public Customer(long id, String name, String address) {
+    public Customer(long id, String username, String password) {
         this.id = id;
-        this.name = name;
-        this.address = address;
+        this.username = username;
+        this.password = password;
     }
 }
