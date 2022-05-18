@@ -4,6 +4,8 @@ import com.example.demo.model.*;
 import com.example.demo.repository.CustomerOrderRepo;
 import com.example.demo.repository.CustomerRepo;
 import com.example.demo.repository.ItemRepo;
+import com.example.demo.service.RabbitSender;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +19,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/items")
 public class ItemController {
 
+    @Autowired
+    private RabbitSender rabbitSender;
 
     @Autowired
     ItemRepo itemRepo;
+
     @Autowired
     CustomerOrderRepo customerOrderRepo;
+
     @Autowired
     CustomerRepo customerRepo;
 
@@ -40,7 +46,13 @@ public class ItemController {
             Item item = itemRepo.findById(buyObject.getItem()).get();
             CustomerOrder order = new CustomerOrder(customer, item);
             customerOrderRepo.save(order);
-        return ResponseEntity
+
+            try {
+                rabbitSender.sendReceiptData(customer, item);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+            return ResponseEntity
                 .created(uriComponentsBuilder.path("orders/{id}").build(order.getId()))
                 .build();
         }
