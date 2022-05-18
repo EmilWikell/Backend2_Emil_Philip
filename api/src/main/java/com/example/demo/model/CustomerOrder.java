@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Iterator;
 
 @Entity @Data @NoArgsConstructor
 public class CustomerOrder {
@@ -21,7 +20,6 @@ public class CustomerOrder {
 
     public CustomerOrder(long id , Customer customer, Item item) {
         this.Id = id;
-
         this.customer = customer;
         this.item = item;
     }

@@ -15,11 +15,11 @@ public class Item {
     private long id;
     private String name;
 
-    public Item(String name, String articleNr) {
+    public Item(String name) {
         this.name = name;
     }
 
-    public Item(long id, String name, String articleNr) {
+    public Item(long id, String name) {
         this.id = id;
         this.name = name;
     }
