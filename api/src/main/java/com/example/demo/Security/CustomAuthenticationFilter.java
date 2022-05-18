@@ -26,9 +26,9 @@ import java.util.stream.Collectors;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-public class CustomFilter extends AbstractAuthenticationProcessingFilter {
+public class CustomAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 
-    protected CustomFilter() {
+    protected CustomAuthenticationFilter() {
         super(new AntPathRequestMatcher("/login", "POST"));
     }
 

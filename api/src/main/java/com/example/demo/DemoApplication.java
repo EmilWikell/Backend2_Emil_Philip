@@ -1,8 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.model.Customer;
-import com.example.demo.model.CustomerOrder;
-import com.example.demo.model.Item;
 import com.example.demo.repository.CustomerOrderRepo;
 import com.example.demo.repository.CustomerRepo;
 import com.example.demo.repository.ItemRepo;
@@ -12,9 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import javax.persistence.criteria.Order;
-import java.util.List;
 
 @SpringBootApplication
 public class DemoApplication {
