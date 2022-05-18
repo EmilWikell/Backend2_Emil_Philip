@@ -1,6 +1,5 @@
-package com.example.rabbitmq;
+package com.example.recipeService;
 
-import org.apache.catalina.Store;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
