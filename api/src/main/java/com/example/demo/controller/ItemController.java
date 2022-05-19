@@ -36,8 +36,6 @@ public class ItemController {
         return itemRepo.findById(id).get();
     }
 
-
-
     @PostMapping("/buy")
     public ResponseEntity<Void> buyItem(@RequestBody BuyObject buyObject, UriComponentsBuilder uriComponentsBuilder){
         if(customerRepo.findById(buyObject.getCustomer()).isPresent()

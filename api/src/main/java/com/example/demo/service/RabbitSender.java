@@ -22,5 +22,4 @@ public class RabbitSender {
         byte[] data = objectMapper.writeValueAsBytes(receipt);
         rabbitTemplate.convertAndSend("webShop", "api.#", data);
     }
-
 }

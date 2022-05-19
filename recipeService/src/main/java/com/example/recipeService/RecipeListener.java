@@ -18,18 +18,31 @@ public class RecipeListener implements MessageListener {
 	@Override
 	public void onMessage(Message message) {
 		String recipeData = new String(message.getBody());
+		RecipeData informationToPrintOnPDF = dataFormatter(recipeData);
 		try {
-			pdfC(recipeData);
+			pdfC(informationToPrintOnPDF);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		System.out.println("Consuming Message - " + recipeData);
 	}
 
-	private void pdfC(String message) throws IOException {
+	protected RecipeData dataFormatter(String recipeData) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
+		String lineBreaker =
+				"--------------------------------------------------------------------";
 
+		return new RecipeData(
+				"Store: web-shop",
+				"Store number: 154856-4848",
+				"Address: Online",
+				"Date: " + dtf.format(now),
+				lineBreaker,
+				recipeData);
+	}
+
+	private void pdfC(RecipeData message) throws IOException {
 		PDDocument document = new PDDocument();
 		PDPage page = new PDPage();
 		document.addPage(page);
@@ -40,26 +53,20 @@ public class RecipeListener implements MessageListener {
 		contentStream.setLeading(16.0f);
 		contentStream.newLineAtOffset(25, page.getTrimBox().getHeight() - 25);
 
-		String line1 = "Store: webshop";
-		String line2 = "Store number: 154856-4848";
-		String line3 = "Address: Online";
-		String line4 = "Date: " + dtf.format(now);
-		String line5 = "--------------------------------------------------------------------";
-
-		contentStream.showText(line1);
+		contentStream.showText(message.getStore());
 		contentStream.newLine();
-		contentStream.showText(line2);
+		contentStream.showText(message.getStoreNumber());
 		contentStream.newLine();
-		contentStream.showText(line3);
+		contentStream.showText(message.getAddress());
 		contentStream.newLine();
-		contentStream.showText(line4);
+		contentStream.showText(message.getDate());
 		contentStream.newLine();
 		contentStream.newLine();
-		contentStream.showText(line5);
+		contentStream.showText(message.getLineBreaker());
 		contentStream.newLine();
-		contentStream.showText(message);
+		contentStream.showText(message.getOrderData());
 		contentStream.newLine();
-		contentStream.showText(line5);
+		contentStream.showText(message.getLineBreaker());
 		contentStream.newLine();
 		contentStream.endText();
 		contentStream.close();

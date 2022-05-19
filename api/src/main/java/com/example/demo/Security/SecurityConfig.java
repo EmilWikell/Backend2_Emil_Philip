@@ -16,9 +16,12 @@ import static org.springframework.http.HttpMethod.POST;
 
 @Configuration @EnableWebSecurity @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private MyUserDetailsService myUserDetailsService;
+
     private final PasswordEncoder passwordEncoder;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder);

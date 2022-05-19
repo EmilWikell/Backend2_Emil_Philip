@@ -4,21 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="906b5773-b419-4e4a-8088-cda62fb029bc" name="Changes" comment="added docker file">
-      <change beforePath="$PROJECT_DIR$/../api/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/../api/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api/pom.xml" afterDir="false" />
+    <list default="true" id="906b5773-b419-4e4a-8088-cda62fb029bc" name="Changes" comment="config deockerfiles">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/recipeService/RecipeData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/Security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/Security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/controller/sign_up.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/controller/sign_up.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/service/RabbitSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/service/RabbitSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/mvnw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipeService/RecipeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipeService/RecipeListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -49,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -75,7 +80,8 @@
       <updated>1652895862520</updated>
       <workItem from="1652895864204" duration="806000" />
       <workItem from="1652940805554" duration="7000" />
-      <workItem from="1652941518757" duration="7196000" />
+      <workItem from="1652941518757" duration="8063000" />
+      <workItem from="1652957479579" duration="2085000" />
     </task>
     <task id="LOCAL−00001" summary="moved rabbitmq listener to main project">
       <created>1652896075147</created>
@@ -95,7 +101,13 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1652896338939</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="config deockerfiles">
+      <created>1652950946716</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1652950946716</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +128,7 @@
     <MESSAGE value="moved rabbitmq listener to main project" />
     <MESSAGE value="application-properies" />
     <MESSAGE value="added docker file" />
-    <option name="LAST_COMMIT_MESSAGE" value="added docker file" />
+    <MESSAGE value="config deockerfiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="config deockerfiles" />
   </component>
 </project>
