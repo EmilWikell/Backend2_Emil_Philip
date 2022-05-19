@@ -1,4 +1,4 @@
-package com.example.demo.Controller;
+package com.example.demo.Controller.OldTest;
 
 import com.example.demo.model.Customer;
 import com.example.demo.repository.CustomerRepo;
@@ -41,7 +41,7 @@ class CustomerControllerTest {
     }
 
     @Autowired
-   private MockMvc mvc;
+    private MockMvc mvc;
 
     @Test
     void getCustomerById() throws Exception {

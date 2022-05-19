@@ -1,4 +1,4 @@
-package com.example.demo.Controller;
+package com.example.demo.Controller.OldTest;
 
 import com.example.demo.model.Customer;
 import com.example.demo.model.CustomerOrder;
@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @SpringBootTest
-class  ItemControllerTest {
+class ItemControllerTest {
 
     @Autowired
     private MockMvc mvc;

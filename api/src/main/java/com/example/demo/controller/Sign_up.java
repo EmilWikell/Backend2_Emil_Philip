@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController @RequiredArgsConstructor
-public class sign_up {
+public class Sign_up {
     private final PasswordEncoder passwordEncoder;
     @Autowired
     CustomerRepo customerRepo;
@@ -23,5 +23,10 @@ public class sign_up {
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customerRepo.save(customer);
         return ResponseEntity.created(uriComponentsBuilder.path("").build("")).build();
+    }
+
+    public void signUpDefaultUser(@RequestBody Customer customer) {
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        customerRepo.save(customer);
     }
 }

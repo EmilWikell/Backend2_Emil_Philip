@@ -44,12 +44,15 @@ public class CustomAuthenticationFilter extends AbstractAuthenticationProcessing
             throw new AuthenticationServiceException(e.getMessage(), e);
         }
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
+        System.out.println(authRequest);
         return this.getAuthenticationManager().authenticate(authRequest);
     }
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
+        System.out.println(authentication.getPrincipal());
         User user = (User) authentication.getPrincipal();
+        System.out.println("apapap");
         Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
         String accessToken = JWT.create()
                 .withSubject(user.getUsername())
