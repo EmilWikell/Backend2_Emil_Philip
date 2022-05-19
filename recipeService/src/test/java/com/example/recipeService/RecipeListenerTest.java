@@ -12,7 +12,7 @@ class RecipeListenerTest {
     RecipeListener recipeListener = new RecipeListener();
 
     @Test
-    void recipeInformationTest() {
+    void createRecipeInformationTest() {
         String testRecipeData = "Anneli Kaka";
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
@@ -23,11 +23,11 @@ class RecipeListenerTest {
                 "Date: " + dtf.format(now),
                 "--------------------------------------------------------------------",
                 testRecipeData);
-        assertEquals(recipeDataTestObject.getStore(), recipeListener.recipeInformation(testRecipeData).getStore());
-        assertEquals(recipeDataTestObject.getStoreNumber(), recipeListener.recipeInformation(testRecipeData).getStoreNumber());
-        assertEquals(recipeDataTestObject.getAddress(), recipeListener.recipeInformation(testRecipeData).getAddress());
-        assertEquals(recipeDataTestObject.getDate(), recipeListener.recipeInformation(testRecipeData).getDate());
-        assertEquals(recipeDataTestObject.getLineBreaker(), recipeListener.recipeInformation(testRecipeData).getLineBreaker());
-        assertEquals(recipeDataTestObject.getOrderData(), recipeListener.recipeInformation(testRecipeData).getOrderData());
+        assertEquals(recipeDataTestObject.getStore(), recipeListener.createRecipeInformation(testRecipeData).getStore());
+        assertEquals(recipeDataTestObject.getStoreNumber(), recipeListener.createRecipeInformation(testRecipeData).getStoreNumber());
+        assertEquals(recipeDataTestObject.getAddress(), recipeListener.createRecipeInformation(testRecipeData).getAddress());
+        assertEquals(recipeDataTestObject.getDate(), recipeListener.createRecipeInformation(testRecipeData).getDate());
+        assertEquals(recipeDataTestObject.getLineBreaker(), recipeListener.createRecipeInformation(testRecipeData).getLineBreaker());
+        assertEquals(recipeDataTestObject.getOrderData(), recipeListener.createRecipeInformation(testRecipeData).getOrderData());
     }
 }

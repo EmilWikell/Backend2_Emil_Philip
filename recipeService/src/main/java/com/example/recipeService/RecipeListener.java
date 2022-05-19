@@ -18,7 +18,7 @@ public class RecipeListener implements MessageListener {
 	@Override
 	public void onMessage(Message message) {
 		String recipeData = new String(message.getBody());
-		RecipeData informationToPrintOnPDF = recipeInformation(recipeData);
+		RecipeData informationToPrintOnPDF = createRecipeInformation(recipeData);
 		try {
 			pdfC(informationToPrintOnPDF);
 		} catch (IOException e) {
@@ -27,7 +27,7 @@ public class RecipeListener implements MessageListener {
 		System.out.println("Consuming Message - " + recipeData);
 	}
 
-	protected RecipeData recipeInformation(String recipeData) {
+	protected RecipeData createRecipeInformation(String recipeData) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		String lineBreaker =

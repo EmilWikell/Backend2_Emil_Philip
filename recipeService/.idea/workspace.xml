@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="906b5773-b419-4e4a-8088-cda62fb029bc" name="Changes" comment="formatted the implementation of the reciepe">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/recipeService/RecipeListenerTest.java" afterDir="false" />
+    <list default="true" id="906b5773-b419-4e4a-8088-cda62fb029bc" name="Changes" comment="unittest finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/recipeService/RecipeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/recipeService/RecipeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/recipeService/RecipeListenerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/recipeService/RecipeListenerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +106,7 @@
       <workItem from="1652895864204" duration="806000" />
       <workItem from="1652940805554" duration="7000" />
       <workItem from="1652941518757" duration="8063000" />
-      <workItem from="1652957479579" duration="4126000" />
+      <workItem from="1652957479579" duration="5782000" />
     </task>
     <task id="LOCAL−00001" summary="moved rabbitmq listener to main project">
       <created>1652896075147</created>
@@ -137,7 +138,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1652959683258</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="unittest finished">
+      <created>1652962000086</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1652962000086</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +167,7 @@
     <MESSAGE value="added docker file" />
     <MESSAGE value="config deockerfiles" />
     <MESSAGE value="formatted the implementation of the reciepe" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatted the implementation of the reciepe" />
+    <MESSAGE value="unittest finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="unittest finished" />
   </component>
 </project>
