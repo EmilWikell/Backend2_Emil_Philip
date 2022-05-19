@@ -48,6 +48,7 @@ public class ItemController {
             customerOrderRepo.save(order);
 
             try {
+                System.out.println("inside");
                 rabbitSender.sendReceiptData(customer, item);
             } catch (JsonProcessingException e) {
                 e.printStackTrace();

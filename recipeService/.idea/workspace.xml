@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="906b5773-b419-4e4a-8088-cda62fb029bc" name="Changes" comment="application-properies">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    <list default="true" id="906b5773-b419-4e4a-8088-cda62fb029bc" name="Changes" comment="added docker file">
+      <change beforePath="$PROJECT_DIR$/../api/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/../api/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/service/RabbitSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/com/example/demo/service/RabbitSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +41,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
@@ -60,7 +73,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652895862520</updated>
-      <workItem from="1652895864204" duration="459000" />
+      <workItem from="1652895864204" duration="806000" />
+      <workItem from="1652940805554" duration="7000" />
+      <workItem from="1652941518757" duration="7196000" />
     </task>
     <task id="LOCAL−00001" summary="moved rabbitmq listener to main project">
       <created>1652896075147</created>
@@ -74,7 +89,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1652896095392</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="added docker file">
+      <created>1652896338938</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1652896338939</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +115,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="moved rabbitmq listener to main project" />
     <MESSAGE value="application-properies" />
-    <option name="LAST_COMMIT_MESSAGE" value="application-properies" />
+    <MESSAGE value="added docker file" />
+    <option name="LAST_COMMIT_MESSAGE" value="added docker file" />
   </component>
 </project>

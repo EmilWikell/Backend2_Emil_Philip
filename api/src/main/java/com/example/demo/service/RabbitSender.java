@@ -10,7 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RabbitSender{
+public class RabbitSender {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -20,6 +20,7 @@ public class RabbitSender{
     public void sendReceiptData(Customer customer, Item item) throws JsonProcessingException {
         String receipt = customer.getUsername() + " " + item.getName();
         byte[] data = objectMapper.writeValueAsBytes(receipt);
-        rabbitTemplate.convertAndSend("webShop", "routingKey", data);
+        rabbitTemplate.convertAndSend("webShop", "api.#", data);
     }
+
 }
