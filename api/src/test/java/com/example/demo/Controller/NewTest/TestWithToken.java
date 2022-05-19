@@ -1,5 +1,4 @@
 package com.example.demo.Controller.NewTest;
-
 import com.example.demo.model.Customer;
 import com.example.demo.repository.CustomerRepo;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,17 +29,37 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 @ActiveProfiles("test")
 @SpringBootTest
 @AutoConfigureMockMvc
-public class TestGetWithoutToken {
+public class TestWithToken {
+
 
     @Autowired
     private MockMvc mockMvc;
+    @MockBean
+    private CustomerRepo customerRepo;
 
-    private ResultActions performWithInvalidToken(MockHttpServletRequestBuilder builder) throws Exception {
-        String token = "eyJ0eXAiOoJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYWxpbiIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvbG9naW4iLCJleHAiOjE2NTI4OTg1ODl9.f2SNChC-yB1_44VToSOOlFWT8e-pYMyTOQ7zPbSp7d0";
+    @MockBean
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
+    @BeforeEach
+    public void init(){
+        Customer p1 = new Customer(1L, "user" ,"pass");
+        when(customerRepo.findCustomerByUsername("user")).thenReturn(p1);
+
+    }
+
+
+    private ResultActions performWithLogin(MockHttpServletRequestBuilder builder) throws Exception {
+        String token = mockMvc.perform(post("/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\": \"user\", \"password\": \"pass\"}"))
+                .andReturn().getResponse().getContentAsString();
         return mockMvc.perform(builder.header("Authorization", "Bearer " + token));
     }
+
     @Test
-    void failGetAllCustomersTest() throws Exception {
-        performWithInvalidToken(get("/customers")).andExpect(status().isForbidden());
+    public void shouldUseToken() throws Exception {
+        performWithLogin(get("/customers")).andExpect(status().isOk());
     }
+
 }

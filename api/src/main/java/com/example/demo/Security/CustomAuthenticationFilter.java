@@ -26,11 +26,7 @@ import java.util.stream.Collectors;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-public class CustomAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
-
-    protected CustomAuthenticationFilter() {
-        super(new AntPathRequestMatcher("/login", "POST"));
-    }
+public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -60,9 +56,6 @@ public class CustomAuthenticationFilter extends AbstractAuthenticationProcessing
                 .withIssuer(request.getRequestURL().toString())
                 .withClaim("roles", user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
                 .sign(algorithm);
-        Map<String, String> token = new HashMap<>();
-        token.put("accessToken", accessToken);
-        response.setContentType(APPLICATION_JSON_VALUE);
-        new ObjectMapper().writeValue(response.getOutputStream(), token);
+        new ObjectMapper().writeValue(response.getOutputStream(), accessToken);
     }
 }
