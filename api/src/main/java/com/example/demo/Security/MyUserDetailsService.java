@@ -20,11 +20,9 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Customer customer = customerRepo.findCustomerByUsername(username);
         if (customer == null){
-            System.out.println("username not found");
             throw new UsernameNotFoundException("Username not found");
         }else {
             GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_USER");
-            System.out.println("username found");
             return new org.springframework.security.core.userdetails
                     .User(customer.getUsername(), customer.getPassword(), Arrays.asList(grantedAuthority));
         }

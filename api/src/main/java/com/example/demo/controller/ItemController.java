@@ -1,17 +1,16 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.*;
+import com.example.demo.model.BuyObject;
+import com.example.demo.model.Customer;
+import com.example.demo.model.CustomerOrder;
+import com.example.demo.model.Item;
 import com.example.demo.repository.CustomerOrderRepo;
 import com.example.demo.repository.CustomerRepo;
 import com.example.demo.repository.ItemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import javax.persistence.criteria.Order;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/items")
