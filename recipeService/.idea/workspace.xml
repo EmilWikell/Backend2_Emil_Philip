@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="906b5773-b419-4e4a-8088-cda62fb029bc" name="Changes" comment="unittest finished">
+    <list default="true" id="77813860-1f4b-4038-8eb4-8c86df043b82" name="Changes" comment="unittest finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/recipeService/RecipeListenerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/recipeService/RecipeListenerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +22,15 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="unittest" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -65,7 +74,7 @@
       <recent name="com.example.recipeService" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RecipeListenerTest">
+  <component name="RunManager" selected="Spring Boot.RecipeServiceApplication">
     <configuration name="RecipeListenerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="recipeService" />
       <extension name="coverage">
