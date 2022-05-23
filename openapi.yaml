@@ -1,0 +1,255 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8081
+    description: Generated server url
+paths:
+  /sign_up:
+    post:
+      tags:
+        - Customers
+      summary: Creates a new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sign-up'
+        required: true
+      responses:
+        '201':
+          description: created
+          
+  /login:
+    post:
+      tags:
+        - Customers
+      summary: Login user and returns a JWT token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sign-up'
+        required: true
+      responses:
+        '200':
+          description: Valid login, generated JWT in body
+        "403":
+          description: Invalid login
+          
+  /orders:
+    get:
+      tags:
+        - Customer orders
+      summary: Gets all customer orders
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                   $ref: '#/components/schemas/CustomerOrder'
+                
+    post:
+      tags:
+        - Customer orders
+      summary: Creates a customer order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BuyObject'
+        required: true
+      responses:
+        '201':
+          description: "Order successfully created"
+        "200":
+          description: "Order failed"
+    
+  /items:
+    get:
+      tags:
+        - Items
+      summary: Gets all items
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Item'
+              
+  
+    post:
+      tags:
+        - Items
+      summary: Creates an item
+      operationId: addItem_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item-add'
+        required: true
+      responses:
+        '200':
+          description: "Item added"
+  
+  /orders/{customerId}:
+    get:
+      tags:
+        - Customer orders
+      summary: Gets all orders for a specific customer
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerOrder'
+  
+  /items/{id}:
+    get:
+      tags:
+        - Items
+      summary: Get the item with an id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Item'
+   
+ 
+  /customers:
+    get:
+      tags:
+        - Customers
+      summary: Gets all customer
+      operationId: getAllCustomers_1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+   
+  /customers/{id}:
+    get:
+      tags:
+        - Customers
+      summary: Gets a specific customer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+  
+    
+    
+components:
+  schemas:
+  
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        username:
+          type: string
+        password:
+          type: string
+    
+    sign-up:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    
+    BuyObject:
+      type: object
+      properties:
+        customer:
+          type: integer
+          format: int64
+        item:
+          type: integer
+          format: int64
+    
+    Item:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    
+    Item-add:
+      type: object
+      properties:
+        name:
+          type: string
+
+    
+    CustomerOrder:
+      type: object
+      properties:
+        customer:
+          $ref: '#/components/schemas/Customer'
+        item:
+          $ref: '#/components/schemas/Item'
+        id:
+          type: integer
+          format: int64
