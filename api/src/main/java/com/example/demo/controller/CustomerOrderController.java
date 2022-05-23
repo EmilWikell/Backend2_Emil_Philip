@@ -16,6 +16,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.OK;
+
 @RestController
 @RequestMapping("/orders")
 public class CustomerOrderController {
@@ -40,8 +43,8 @@ public class CustomerOrderController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Void> buyItem(@RequestBody BuyObject buyObject, UriComponentsBuilder uriComponentsBuilder){
-        if(customerRepo.findById(buyObject.getCustomer()).isPresent()
+    public ResponseEntity<String> buyItem(@RequestBody BuyObject buyObject) {
+        if (customerRepo.findById(buyObject.getCustomer()).isPresent()
                 && itemRepo.findById(buyObject.getItem()).isPresent()) {
             Customer customer = customerRepo.findById(buyObject.getCustomer()).get();
             Item item = itemRepo.findById(buyObject.getItem()).get();
@@ -53,12 +56,8 @@ public class CustomerOrderController {
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
-            return ResponseEntity
-                    .created(uriComponentsBuilder.path("orders/{id}").build(order.getId()))
-                    .build();
+            return new ResponseEntity<>("Order nr:" + order.getId(), CREATED);
         }
-        return ResponseEntity
-                .created(uriComponentsBuilder.path("orders/failed").build("failed")).build();
+        return new ResponseEntity<>("Order failed", OK);
     }
-
 }
