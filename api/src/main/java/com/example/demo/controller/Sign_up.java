@@ -14,9 +14,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController @RequiredArgsConstructor
 public class sign_up {
-
     private final PasswordEncoder passwordEncoder;
-
     @Autowired
     CustomerRepo customerRepo;
 

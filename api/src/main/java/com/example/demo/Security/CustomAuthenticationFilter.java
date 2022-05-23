@@ -24,18 +24,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-public class CustomAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
-
-    protected CustomAuthenticationFilter() {
-        super(new AntPathRequestMatcher("/login", "POST"));
-    }
+public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         String username, password;
-        System.out.println(3);
         try {
             Map<String, String> requestMap = new ObjectMapper().readValue(request.getInputStream(), Map.class);
             username = requestMap.get("username");
@@ -48,18 +42,18 @@ public class CustomAuthenticationFilter extends AbstractAuthenticationProcessing
     }
 
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException {
         User user = (User) authentication.getPrincipal();
+        String accessToken = generateToken(user);
+        new ObjectMapper().writeValue(response.getOutputStream(), accessToken);
+    }
+    public String generateToken(User user){
         Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
-        String accessToken = JWT.create()
+        return JWT.create()
                 .withSubject(user.getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
-                .withIssuer(request.getRequestURL().toString())
+                .withIssuer(user.getUsername())
                 .withClaim("roles", user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
                 .sign(algorithm);
-        Map<String, String> token = new HashMap<>();
-        token.put("accessToken", accessToken);
-        response.setContentType(APPLICATION_JSON_VALUE);
-        new ObjectMapper().writeValue(response.getOutputStream(), token);
     }
 }
