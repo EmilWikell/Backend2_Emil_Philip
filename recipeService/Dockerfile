@@ -5,6 +5,7 @@ COPY ./.mvn/ .mvn/
 COPY ./pom.xml .
 COPY ./src/ src/
 RUN chmod +x mvnw
+Run sed -i 's/\r$//' mvnw
 RUN ./mvnw package
 FROM openjdk:11
 WORKDIR /appRecipeService
